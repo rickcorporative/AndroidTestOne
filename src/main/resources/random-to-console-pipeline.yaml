@@ -1,0 +1,16 @@
+replicaCount: 1
+
+resources:
+  limits:
+    cpu: 2
+    memory: 2G
+  requests:
+    cpu: 2
+    memory: 2G
+
+streaming:
+  pipeline:
+    className: org.example.RandomToConsolePipeline
+
+    configuration:
+      tps: 100

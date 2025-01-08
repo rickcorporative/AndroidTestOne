@@ -1,0 +1,23 @@
+replicaCount: 1
+
+resources:
+  limits:
+    cpu: 2
+    memory: 2G
+  requests:
+    cpu: 2
+    memory: 2G
+
+streaming:
+  pipeline:
+    className: org.example.KafkaToVoltPipeline
+
+    configuration:
+      sink:
+        voltdb:
+          cluster: "REPLACE-ME-IN-PIPELINE-YAML"
+      source:
+        kafka:
+          topicNames: "greetings"
+          bootstrapServers: "REPLACE-ME-IN-PIPELINE-YAML"
+          groupId: "1"

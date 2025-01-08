@@ -1,0 +1,20 @@
+replicaCount: 1
+
+resources:
+  limits:
+    cpu: 2
+    memory: 2G
+  requests:
+    cpu: 2
+    memory: 2G
+
+streaming:
+  pipeline:
+    className: org.example.RandomToKafkaPipeline
+
+    configuration:
+      tps: 100
+      sink:
+        kafka:
+          topicName: "greetings"
+          bootstrapServers: "REPLACE-ME-IN-PIPELINE-YAML"
